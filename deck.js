@@ -17,8 +17,6 @@ class Deck {
 
     this.initDots();
     this.initLightbox();
-    this.initPdfModal();
-    this.initBusinessSwitcher();
     this.bindEvents();
     this.update();
   }
@@ -47,21 +45,6 @@ class Deck {
         if (e.key === 'Escape') {
           e.preventDefault();
           this.closeLightbox();
-        }
-        return;
-      }
-
-      // If PDF modal is open, handle Escape or page navigation inside PDF
-      if (this.pdfModal && this.pdfModal.classList.contains('active')) {
-        if (e.key === 'Escape') {
-          e.preventDefault();
-          this.closePdfModal();
-        } else if (e.key === 'ArrowRight' || e.key === 'ArrowDown') {
-          e.preventDefault();
-          this.pdfNextPage();
-        } else if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') {
-          e.preventDefault();
-          this.pdfPrevPage();
         }
         return;
       }
@@ -228,175 +211,6 @@ class Deck {
     this.lightbox.setAttribute('aria-hidden', 'true');
     if (this.lightboxImg) {
       this.lightboxImg.src = '';
-    }
-  }
-
-  initPdfModal() {
-    this.pdfModal = document.getElementById('pdfModal');
-    this.pdfTriggerBtn = document.getElementById('pdfPreviewBtn');
-    this.pdfCloseBtn = document.getElementById('pdfModalCloseBtn');
-    this.pdfBackdrop = document.getElementById('pdfModalBackdrop');
-    this.pdfMainImg = document.getElementById('pdfMainPageImg');
-    this.pdfCounter = document.getElementById('pdfNavCounter');
-    this.pdfPrevBtn = document.getElementById('pdfPrevPageBtn');
-    this.pdfNextBtn = document.getElementById('pdfNextPageBtn');
-    this.pdfThumbs = Array.from(document.querySelectorAll('.pdf-thumb-item'));
-    this.pdfCurrentPage = 1;
-    this.pdfTotalPages = this.pdfThumbs.length || 6;
-
-    if (!this.pdfModal) return;
-
-    if (this.pdfTriggerBtn) {
-      this.pdfTriggerBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        this.openPdfModal();
-      });
-    }
-
-    if (this.pdfCloseBtn) {
-      this.pdfCloseBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        this.closePdfModal();
-      });
-    }
-
-    if (this.pdfBackdrop) {
-      this.pdfBackdrop.addEventListener('click', () => {
-        this.closePdfModal();
-      });
-    }
-
-    if (this.pdfPrevBtn) {
-      this.pdfPrevBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        this.pdfPrevPage();
-      });
-    }
-
-    if (this.pdfNextBtn) {
-      this.pdfNextBtn.addEventListener('click', (e) => {
-        e.stopPropagation();
-        this.pdfNextPage();
-      });
-    }
-
-    this.pdfThumbs.forEach(thumb => {
-      thumb.addEventListener('click', (e) => {
-        e.stopPropagation();
-        const page = parseInt(thumb.getAttribute('data-page'), 10);
-        if (!isNaN(page)) {
-          this.pdfGoToPage(page);
-        }
-      });
-    });
-  }
-
-  openPdfModal() {
-    if (!this.pdfModal) return;
-    this.pdfModal.classList.add('active');
-    this.pdfModal.setAttribute('aria-hidden', 'false');
-    this.pdfGoToPage(1);
-  }
-
-  closePdfModal() {
-    if (!this.pdfModal) return;
-    this.pdfModal.classList.remove('active');
-    this.pdfModal.setAttribute('aria-hidden', 'true');
-  }
-
-  pdfGoToPage(page) {
-    if (page < 1) page = 1;
-    if (page > this.pdfTotalPages) page = this.pdfTotalPages;
-    this.pdfCurrentPage = page;
-
-    if (this.pdfMainImg) {
-      this.pdfMainImg.src = `assets/pdf-pages/page-${page}.png`;
-      this.pdfMainImg.alt = `Papa Vito Audit Report Page ${page}`;
-    }
-
-    if (this.pdfCounter) {
-      this.pdfCounter.textContent = `Page ${page} / ${this.pdfTotalPages}`;
-    }
-
-    if (this.pdfPrevBtn) {
-      this.pdfPrevBtn.disabled = (page === 1);
-    }
-    if (this.pdfNextBtn) {
-      this.pdfNextBtn.disabled = (page === this.pdfTotalPages);
-    }
-
-    this.pdfThumbs.forEach(thumb => {
-      const p = parseInt(thumb.getAttribute('data-page'), 10);
-      thumb.classList.toggle('active', p === page);
-      if (p === page) {
-        thumb.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-      }
-    });
-  }
-
-  pdfPrevPage() {
-    if (this.pdfCurrentPage > 1) {
-      this.pdfGoToPage(this.pdfCurrentPage - 1);
-    }
-  }
-
-  pdfNextPage() {
-    if (this.pdfCurrentPage < this.pdfTotalPages) {
-      this.pdfGoToPage(this.pdfCurrentPage + 1);
-    }
-  }
-
-  initBusinessSwitcher() {
-    const isPapaVitos = window.location.pathname.includes('papa-vitos') || window.location.hash === '#papa-vitos';
-    this.currentBiz = isPapaVitos ? 'papa-vitos' : 'matchbox';
-    this.applyBusiness(this.currentBiz);
-
-    const buttons = document.querySelectorAll('.biz-pill[data-biz]');
-    buttons.forEach(btn => {
-      btn.addEventListener('click', (e) => {
-        e.preventDefault();
-        const targetBiz = btn.getAttribute('data-biz');
-        if (targetBiz && targetBiz !== this.currentBiz) {
-          this.switchBusiness(targetBiz);
-        }
-      });
-    });
-  }
-
-  switchBusiness(biz) {
-    this.currentBiz = biz;
-    this.applyBusiness(biz);
-    try {
-      history.replaceState(null, '', biz === 'papa-vitos' ? '#papa-vitos' : '#matchbox');
-    } catch (err) {}
-  }
-
-  applyBusiness(biz) {
-    // Update active pill state
-    document.querySelectorAll('.biz-pill[data-biz]').forEach(btn => {
-      btn.classList.toggle('active', btn.getAttribute('data-biz') === biz);
-    });
-
-    // Update Slide 5 Intro Title and Image
-    const introTitle = document.querySelector('.screenshot-intro-title');
-    const introImg = document.querySelector('.screenshot-frame img');
-
-    if (biz === 'papa-vitos') {
-      if (introTitle) {
-        introTitle.innerHTML = 'Sample Business: <span class="highlight-text">Papa Vito\'s Italian Restaurant And Pizza Kitchen</span>';
-      }
-      if (introImg) {
-        introImg.src = 'assets/sample-business-papa-vitos.jpg';
-        introImg.alt = 'Papa Vito\'s Italian Restaurant And Pizza Kitchen Sample Business Audit Screenshot';
-      }
-    } else {
-      if (introTitle) {
-        introTitle.innerHTML = 'Sample Business: <span class="highlight-text">Matchbox</span>';
-      }
-      if (introImg) {
-        introImg.src = 'assets/sample-business-matchbox.jpg';
-        introImg.alt = 'Matchbox Sample Business Audit Screenshot';
-      }
     }
   }
 
