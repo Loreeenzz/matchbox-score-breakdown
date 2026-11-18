@@ -2445,11 +2445,11 @@
       </header>
 
       <!-- Main Split Content -->
-      <div class="slide-split-layout" style="grid-template-columns: 280px 1fr; max-width: 1040px; gap: 36px;">
+      <div class="slide-split-layout" style="grid-template-columns: 300px minmax(0, 1fr); max-width: 1240px; gap: 42px;">
 
         <!-- Left Hero Column -->
         <div class="gbp-hero-column" style="padding: 0;">
-          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px; width: 100%; max-width: 250px;">
+          <div style="display: flex; align-items: center; gap: 12px; margin-bottom: 14px; width: 100%; max-width: 280px;">
             <svg viewBox="0 0 24 24" width="38" height="38" fill="none" stroke="#00A3FF" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
               <circle cx="12" cy="12" r="10"></circle>
               <line x1="2" y1="12" x2="22" y2="12"></line>
@@ -2462,7 +2462,7 @@
           </div>
 
           <!-- WEB Audit Metric Card Image (Exact, Crisp Image) -->
-          <img src="assets/web-card.png" alt="WEB Score 7.79 - Standard Performance" style="width: 100%; max-width: 250px; height: auto; border-radius: 14px; box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08); display: block;">
+          <img src="assets/web-card.png" alt="WEB Score 7.79 - Standard Performance" style="width: 100%; max-width: 280px; height: auto; border-radius: 14px; box-shadow: 0 10px 24px rgba(15, 23, 42, 0.08); display: block;">
         </div>
 
         <!-- Right Column: Table and Formula -->
@@ -2474,9 +2474,9 @@
                 <tr>
                   <th style="padding: 13px 20px; text-align: left;">CATEGORY</th>
                   <th style="text-align: center; width: 85px; padding: 13px 12px;">WEIGHT</th>
-                  <th style="text-align: center; width: 120px; padding: 13px 12px;">DESKTOP SCORE</th>
-                  <th style="text-align: center; width: 110px; padding: 13px 12px;">MOBILE SCORE</th>
-                  <th style="text-align: center; width: 125px; padding: 13px 18px;">AVERAGE SCORE</th>
+                  <th style="text-align: center; width: 120px; padding: 13px 12px;">DESKTOP<br>SCORE / 100</th>
+                  <th style="text-align: center; width: 110px; padding: 13px 12px;">MOBILE<br>SCORE / 100</th>
+                  <th style="text-align: center; width: 125px; padding: 13px 18px;">CATEGORY<br>AVERAGE / 100</th>
                 </tr>
               </thead>
               <tbody>
@@ -2521,7 +2521,7 @@
               </tbody>
               <tfoot>
                 <tr style="background: #F0FDFA; border-top: 2px solid rgba(13, 148, 136, 0.25);">
-                  <td style="padding: 13px 20px; font-weight: 800; font-size: 14px; color: var(--text-dark);">Total</td>
+                  <td style="padding: 13px 20px; font-weight: 800; font-size: 14px; color: var(--text-dark);">Weighted total</td>
                   <td style="text-align: center; padding: 13px 12px;">
                     <span class="total-badge" style="background: #0D9488; color: #FFFFFF; padding: 3px 10px; border-radius: 8px; font-weight: 800; font-size: 12.5px;">100%</span>
                   </td>
@@ -2536,10 +2536,13 @@
           </div>
 
           <!-- Formula & Calculation Card -->
-          <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px; padding: 14px 20px; display: inline-flex; flex-direction: column; gap: 4px; align-self: flex-start; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);">
-            <div style="font-size: 14px; font-weight: 600; color: var(--text-secondary);">(81.70% + 74.05%) ÷ 2</div>
-            <div style="font-size: 15px; font-weight: 700; color: var(--text-dark);">= 77.88%</div>
-            <div style="font-size: 18px; font-weight: 800; color: #16A34A;">= 7.79 <span style="font-size: 14.5px; font-weight: 600; color: var(--text-secondary);">/ 10</span></div>
+          <div style="background: #F8FAFC; border: 1px solid #E2E8F0; border-radius: 14px; padding: 16px 20px; display: flex; flex-direction: column; gap: 7px; width: 100%; box-shadow: 0 4px 12px rgba(15, 23, 42, 0.04);">
+            <div style="font-size: 13px; font-weight: 800; color: var(--text-dark); letter-spacing: 0.04em;">SCORE CALCULATION</div>
+            <div style="font-size: 14px; font-weight: 600; color: var(--text-secondary);">Desktop: (89 × 50%) + (72 × 45%) + (96 × 5%) = <strong style="color: var(--text-dark);">81.70%</strong></div>
+            <div style="font-size: 14px; font-weight: 600; color: var(--text-secondary);">Mobile: (89 × 50%) + (55 × 45%) + (96 × 5%) = <strong style="color: var(--text-dark);">74.05%</strong></div>
+            <div style="font-size: 15px; font-weight: 700; color: var(--text-dark);">Average: (81.70% + 74.05%) ÷ 2 = 77.875% <span style="font-size: 13px; font-weight: 600; color: var(--text-secondary);">(shown as 77.88% in the table)</span></div>
+            <div style="font-size: 15px; font-weight: 700; color: var(--text-dark);">Convert to 10-point scale: 77.875 ÷ 10 = 7.7875 / 10</div>
+            <div style="font-size: 18px; font-weight: 800; color: #16A34A;">Final WEB score: 7.79 <span style="font-size: 14.5px; font-weight: 600; color: var(--text-secondary);">/ 10 (rounded to 2 decimals)</span></div>
           </div>
         </div>
 
@@ -2548,7 +2551,7 @@
 
 
     <!-- ============ SLIDE 17 · DESKTOP VS MOBILE WEB BREAKDOWN ============ -->
-    <section class="slide" id="slide-17" data-notes="Matchbox Desktop vs Mobile Website Performance: Desktop scores 81.70% (8.17/10) with 89 SEO, 72 Performance, 96 Best Practices. Mobile scores 74.05% (7.4/10) with 89 SEO, 55 Performance, 96 Best Practices. The combined average is ((8.17 + 7.4) ÷ 2) = 7.79 / 10.">
+    <section class="slide" id="slide-17" data-notes="Matchbox Desktop vs Mobile Website Performance: Desktop scores 81.70% with 89 SEO, 72 Performance, 96 Best Practices. Mobile scores 74.05% with 89 SEO, 55 Performance, 96 Best Practices. Average the unrounded percentages: (81.70% + 74.05%) ÷ 2 = 77.875%. Divide the numeric percentage by 10 to get 7.7875 / 10, displayed as 7.79 / 10.">
       <!-- Background Continuity Arcs -->
       <div class="decor-top-right-subtle"></div>
       <div class="decor-bottom-left-subtle"></div>
@@ -2560,7 +2563,7 @@
       </header>
 
       <!-- Main Content Container -->
-      <div style="position: relative; z-index: 10; width: 100%; max-width: 1060px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; padding-top: 6px;">
+      <div style="position: relative; z-index: 10; width: 100%; max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 18px; padding-top: 6px;">
 
         <!-- Top Row: Desktop & Mobile Side-by-Side Audit Screenshots -->
         <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 20px;">
@@ -2601,23 +2604,23 @@
 
           <!-- Formula Box -->
           <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04); display: flex; flex-direction: column; justify-content: space-between;">
-            <div style="font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px;">FORMULA</div>
-            <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.45;">
+            <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px;">FORMULA</div>
+            <div style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.45;">
               <div style="font-weight: 700; color: var(--text-dark);">Device Score (%) =</div>
               <div>(SEO Score × 50%)</div>
               <div>+ (Performance Score × 45%)</div>
               <div>+ (Best Practices Score × 5%)</div>
             </div>
-            <div style="margin-top: 6px; padding-top: 5px; border-top: 1px dashed #E2E8F0; font-size: 11px; color: var(--text-secondary); line-height: 1.4;">
+            <div style="margin-top: 6px; padding-top: 5px; border-top: 1px dashed #E2E8F0; font-size: 12.5px; color: var(--text-secondary); line-height: 1.4;">
               <div style="font-weight: 700; color: var(--text-dark);">Final Website Score (/10) =</div>
-              <div>(Desktop Score + Mobile Score) ÷ 2</div>
+              <div>Average device score (%) ÷ 10</div>
             </div>
           </div>
 
           <!-- Desktop Calculation -->
           <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04); display: flex; flex-direction: column; justify-content: space-between;">
-            <div style="font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #2563EB; margin-bottom: 4px;">DESKTOP</div>
-            <div style="font-size: 11.5px; color: var(--text-secondary); line-height: 1.45;">
+            <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #2563EB; margin-bottom: 4px;">DESKTOP</div>
+            <div style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.45;">
               <div>(89 × 0.50) + (72 × 0.45) + (96 × 0.05)</div>
               <div style="font-size: 14px; font-weight: 700; color: var(--text-dark); margin-top: 4px;">= 81.70%</div>
             </div>
@@ -2628,24 +2631,25 @@
 
           <!-- Mobile Calculation -->
           <div style="background: #FFFFFF; border: 1px solid #E2E8F0; border-radius: 12px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(15, 23, 42, 0.04); display: flex; flex-direction: column; justify-content: space-between;">
-            <div style="font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #EA580C; margin-bottom: 4px;">MOBILE</div>
-            <div style="font-size: 11.5px; color: var(--text-secondary); line-height: 1.45;">
+            <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #EA580C; margin-bottom: 4px;">MOBILE</div>
+            <div style="font-size: 12.5px; color: var(--text-secondary); line-height: 1.45;">
               <div>(89 × 0.50) + (55 × 0.45) + (96 × 0.05)</div>
               <div style="font-size: 14px; font-weight: 700; color: var(--text-dark); margin-top: 4px;">= 74.05%</div>
             </div>
             <div style="font-size: 16px; font-weight: 800; color: #16A34A; margin-top: 6px;">
-              = 7.405 <span style="font-size: 12px; font-weight: 600; color: var(--text-secondary);">/ 10</span>
+              = 7.405 <span style="font-size: 12px; font-weight: 600; color: var(--text-secondary);">/ 10 (unrounded)</span>
             </div>
           </div>
 
           <!-- Final Score Box -->
           <div style="background: #F0FDF4; border: 1.5px solid #86EFAC; border-radius: 12px; padding: 12px 14px; box-shadow: 0 2px 8px rgba(22, 163, 74, 0.06); display: flex; flex-direction: column; justify-content: space-between;">
-            <div style="font-size: 11px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #15803D; margin-bottom: 4px;">FINAL</div>
-            <div style="font-size: 12px; color: #166534; font-weight: 600; line-height: 1.45;">
-              <div>(8.17 + 7.405) ÷ 2 = 7.7875</div>
+            <div style="font-size: 12px; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #15803D; margin-bottom: 4px;">FINAL</div>
+            <div style="font-size: 12.5px; color: #166534; font-weight: 600; line-height: 1.45;">
+              <div>(81.70% + 74.05%) ÷ 2 = 77.875%</div>
+              <div>77.875 ÷ 10 = 7.7875 / 10</div>
             </div>
             <div style="font-size: 19px; font-weight: 800; color: #16A34A; margin-top: 6px;">
-              ≈ 7.79 <span style="font-size: 13.5px; font-weight: 600; color: #15803D;">/ 10</span>
+              = 7.79 <span style="font-size: 13.5px; font-weight: 600; color: #15803D;">/ 10 (rounded)</span>
             </div>
           </div>
 
@@ -2656,7 +2660,7 @@
 
 
     <!-- ============ SLIDE 18 · MATCHBOX SOC CALCULATION ============ -->
-    <section class="slide" id="slide-18" data-notes="Matchbox SOC Summary: Social Media presence evaluated at 4.02 (Engagement Risk). Weighted across Post Activity (85%), Follower Count (5%), Profile Consistency (5%), and Cross-Linking (5%). Post activity breaks down into Standard Posts (65% -> 1.52) and Video/Reels (20% -> 2.00) totaling 3.52.">
+    <section class="slide" id="slide-18" data-notes="Matchbox SOC Summary: Social Media presence evaluated at 4.02 (Engagement Risk). Instagram was the only scored platform, so it received 100% of the platform weighting. Its score is Post Activity (3.52) + Follower Count (0.50) + Profile Consistency (0.00) = 4.02. Facebook–Instagram cross-linking is a separate bonus added once after platform weighting; Matchbox received 0.00. Post activity breaks down into Standard Posts (1.52) and Video/Reels (2.00).">
       <!-- Background Continuity Arcs -->
       <div class="decor-top-right-subtle"></div>
       <div class="decor-bottom-left-subtle"></div>
@@ -2754,14 +2758,14 @@
                   <td style="padding: 8px 18px; text-align: right; font-weight: 700; color: #94A3B8;">0.00</td>
                 </tr>
 
-                <!-- Facebook-Instagram Cross-Linking: 5% -> 0.00 -->
+                <!-- Facebook-Instagram Cross-Linking: separate 0.50 bonus -> 0.00 -->
                 <tr>
                   <td style="padding: 8px 18px;">
                     <div class="cat-title">
                       <span>Facebook–Instagram Cross-Linking</span>
                     </div>
                   </td>
-                  <td class="col-weight" style="padding: 8px 14px; text-align: center;">5%</td>
+                  <td class="col-weight" style="padding: 8px 14px; text-align: center;">+0.50 max</td>
                   <td style="padding: 8px 18px; text-align: right; font-weight: 700; color: #94A3B8;">0.00</td>
                 </tr>
               </tbody>
@@ -2769,7 +2773,7 @@
                 <tr>
                   <td style="padding: 8px 18px; font-weight: 800;">Total</td>
                   <td class="col-weight" style="padding: 8px 14px; text-align: center;">
-                    <span class="total-badge" style="background: #EA580C;">100%</span>
+                    <span class="total-badge" style="background: #EA580C;">—</span>
                   </td>
                   <td style="padding: 8px 18px; text-align: right;">
                     <span class="total-contrib-score" style="color: #EA580C; font-weight: 800; font-size: 15px;">4.02 / 10</span>
@@ -2777,6 +2781,7 @@
                 </tr>
               </tfoot>
             </table>
+            <p style="margin: 6px 18px 8px; font-size: 11px; line-height: 1.35; color: var(--text-secondary);">Only Instagram was scored, so it receives 100% of platform weighting. Cross-linking is added once afterward: 4.02 + 0.00 = 4.02.</p>
           </div>
 
           <!-- Table 2: Post Activity Breakdown Deep-Dive -->
@@ -2837,7 +2842,7 @@
 
 
     <!-- ============ SLIDE 19 · STANDARD POSTS (COMBINED RULES & CALCULATION) ============ -->
-    <section class="slide" id="slide-19" data-notes="Standard Posts (65%): Matchbox had standard posts on Instagram evaluated for the rolling 30-day window (November 18 analysis). With all posts featuring captions (1.00 caption factor) totaling 1.75 points, and using Instagram normalization (7.50): (1.75 ÷ 7.50) × 6.50 = 1.52 / 6.50.">
+    <section class="slide" id="slide-19" data-notes="Standard Posts (65%): The November 18 Matchbox scrape recorded captioned Instagram standard posts dated November 14 and November 8 UTC. Their decay-weighted points total 1.75. Using Instagram normalization (7.50): (1.75 ÷ 7.50) × 6.50 = 1.52 / 6.50. The adjacent screenshot shows the November 14 post; its relative age label reflects screenshot capture time.">
       <!-- Background Continuity Arcs -->
       <div class="decor-top-right-subtle"></div>
       <div class="decor-bottom-left-subtle"></div>
@@ -2849,7 +2854,7 @@
       </header>
 
       <!-- Main Content Layout -->
-      <div style="position: relative; z-index: 10; width: 100%; max-width: 1080px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px;">
+      <div style="position: relative; z-index: 10; width: 100%; max-width: 1240px; margin: 0 auto; display: flex; flex-direction: column; gap: 14px;">
 
         <!-- Slide Metric Title -->
         <div>
@@ -2858,7 +2863,7 @@
         </div>
 
         <!-- 3-Column Split: Rules & Normalization | Matchbox Calculation | Post Proof -->
-        <div style="display: grid; grid-template-columns: 330px 310px 1fr; gap: 24px; align-items: start;">
+        <div style="display: grid; grid-template-columns: 350px 330px minmax(0, 1fr); gap: 24px; align-items: start;">
 
           <!-- Column 1: Scoring Rules & Normal Text Formulas -->
           <div style="display: flex; flex-direction: column;">
@@ -2896,16 +2901,16 @@
             </div>
 
             <!-- Plain Normal Text Explanations (Just like PPT) -->
-            <div style="margin-top: 12px; font-size: 11.5px; line-height: 1.5; color: var(--text-dark);">
-              <div style="font-weight: 800; font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 2px;">CAPTION FACTOR</div>
+            <div style="margin-top: 12px; font-size: 12.5px; line-height: 1.5; color: var(--text-dark);">
+              <div style="font-weight: 800; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 2px;">CAPTION FACTOR</div>
               <div>💡 Description present = 1.00 (All Matchbox posts have captions)</div>
               <div style="padding-left: 18px; color: var(--text-secondary);">Description missing = 0.80</div>
 
-              <div style="font-weight: 800; font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-top: 8px; margin-bottom: 2px;">PLATFORM NORMALIZATION</div>
+              <div style="font-weight: 800; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-top: 8px; margin-bottom: 2px;">PLATFORM NORMALIZATION</div>
               <div><strong>Facebook:</strong> (20 posts ÷ 4 weeks) × 2.5 = 12.5 (Platform not available)</div>
               <div style="color: #2563EB; font-weight: 700;"><strong>Instagram (Active):</strong> (12 posts ÷ 4 weeks) × 2.5 = 7.5</div>
 
-              <div style="font-weight: 800; font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-top: 8px; margin-bottom: 2px;">FORMULA</div>
+              <div style="font-weight: 800; font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-top: 8px; margin-bottom: 2px;">FORMULA</div>
               <div>Post Points = Decay Weight × Caption Factor (1.00)</div>
               <div style="margin-top: 2px; color: var(--text-secondary);">
                 Standard Post Score = MIN(Total Points ÷ 7.50 × 6.50, 6.50)
@@ -2929,12 +2934,12 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td style="font-weight: 600;">November 14</td>
+                    <td style="font-weight: 600;"><a href="https://www.instagram.com/p/Dfu6DDwAsnK" target="_blank" rel="noopener noreferrer">November 14</a></td>
                     <td style="text-align: center; color: var(--text-secondary);">0–7 days</td>
                     <td style="text-align: right; font-weight: 700; color: #16A34A;">1.00</td>
                   </tr>
                   <tr>
-                    <td style="font-weight: 600;">November 7</td>
+                    <td style="font-weight: 600;"><a href="https://www.instagram.com/p/DffPjGaDx-z" target="_blank" rel="noopener noreferrer">November 8</a></td>
                     <td style="text-align: center; color: var(--text-secondary);">8–14 days</td>
                     <td style="text-align: right; font-weight: 700; color: #2563EB;">0.75</td>
                   </tr>
@@ -2950,8 +2955,8 @@
             </div>
 
             <!-- Plain Normal Text Calculation (Just like PPT) -->
-            <div style="margin-top: 12px; font-size: 12.5px; line-height: 1.5; color: var(--text-dark);">
-              <div style="font-weight: 700; color: var(--text-muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;">Score Calculation</div>
+            <div style="margin-top: 12px; font-size: 13.5px; line-height: 1.5; color: var(--text-dark);">
+              <div style="font-weight: 700; color: var(--text-muted); font-size: 12px; text-transform: uppercase; letter-spacing: 0.06em;">Score Calculation</div>
               <div>Instagram Normalization Applied: <strong>7.50</strong></div>
               <div>Standard Post Score =</div>
               <div>(1.75 ÷ 7.50) × 6.50</div>
@@ -2963,14 +2968,14 @@
 
           <!-- Column 3: Instagram Post Proof Screenshot -->
           <div style="display: flex; flex-direction: column;">
-            <div style="font-size: 11px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;">
-              Instagram Recency Proof (Highlighted “2 days ago”):
+            <div style="font-size: 12.5px; font-weight: 700; color: var(--text-dark); margin-bottom: 6px;">
+              November 14 Instagram post and caption
             </div>
             <div style="border-radius: 12px; overflow: hidden; border: 1px solid #CBD5E1; box-shadow: 0 4px 14px rgba(15, 23, 42, 0.08); background: #FFFFFF; max-height: 420px;">
-              <img src="assets/matchbox-instagram-post.jpg" alt="Matchbox Instagram Post with 2 days ago recency indicator" style="width: 100%; height: auto; display: block;">
+              <img src="assets/matchbox-instagram-post-nov14.png" alt="Matchbox November 14 Instagram post showing a dinner promotion and caption" style="width: 100%; height: auto; display: block;">
             </div>
-            <div style="font-size: 11px; color: var(--text-secondary); margin-top: 6px; line-height: 1.4;">
-              All posts include captions (1.00 caption factor).
+            <div style="font-size: 12px; color: var(--text-secondary); margin-top: 6px; line-height: 1.4;">
+              This November 14 post has a caption. Both posts receive the full 1.00 caption factor.
             </div>
           </div>
 
@@ -2981,7 +2986,7 @@
 
 
     <!-- ============ SLIDE 20 · VIDEO / REELS (COMBINED RULES & CALCULATION) ============ -->
-    <section class="slide" id="slide-20" data-notes="Video/Reels (20%): Evaluated under the 2.50 normalization baseline using MIN(Total Reel Points ÷ 2.50 × 2.00, 2.00). Matchbox earned the reported 2.00 / 2.00 contribution.">
+    <section class="slide" id="slide-20" data-notes="Video/Reels (20%): Each reel earns its age-based decay weight multiplied by 1.00 when captioned or 0.80 without a caption. The November 18 Matchbox analysis recorded six captioned reels aged 0–7 days and two aged 8–14 days, totaling 7.50 points. MIN(7.50 ÷ 2.50 × 2.00, 2.00) gives the capped 2.00 / 2.00 contribution.">
       <!-- Background Continuity Arcs -->
       <div class="decor-top-right-subtle"></div>
       <div class="decor-bottom-left-subtle"></div>
@@ -3046,7 +3051,8 @@
               </div>
 
               <div style="font-weight: 800; font-size: 10.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--text-muted); margin-top: 10px; margin-bottom: 2px;">FORMULA</div>
-              <div>Reel Points = Decay Weight</div>
+              <div>Reel Points = Decay Weight × Caption Factor</div>
+              <div style="color: var(--text-secondary);">Caption present = 1.00; missing = 0.80</div>
               <div style="margin-top: 4px;">
                 Reel Score =<br>
                 <span style="font-family: inherit; color: var(--text-dark);">MIN(Total Reel Points ÷ 2.50 × 2.00, 2.00)</span>
@@ -3060,28 +3066,23 @@
               Matchbox Video/Reels Performance:
             </div>
 
-            <!-- Audit Finding Card -->
+            <!-- Stored reel counts and decay-weighted points -->
             <div class="matrix-card" style="padding: 14px 16px;">
-              <div style="display: flex; align-items: center; gap: 8px; margin-bottom: 8px;">
-                <span style="display: inline-block; width: 8px; height: 8px; border-radius: 50%; background: #2563EB;"></span>
-                <span style="font-weight: 700; font-size: 12px; color: #2563EB; text-transform: uppercase; letter-spacing: 0.05em;">Audit Summary Finding</span>
-              </div>
-              <div style="font-size: 12px; font-weight: 600; color: var(--text-dark); line-height: 1.5; margin-bottom: 6px;">
-                “Instagram Profile has 8 video reels and all posts have captions. Strong content output.”
-              </div>
-              <div style="font-size: 11px; color: var(--text-secondary); line-height: 1.45;">
-                Note: Individual decayed reel dates and points are not detailed in the report summary; the analysis reports the full category contribution.
-              </div>
+              <div style="font-weight: 700; font-size: 12px; color: #2563EB; text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 8px;">8 captioned reels</div>
+              <div style="font-size: 12px; line-height: 1.65; color: var(--text-dark);">0–7 days: 6 × 1.00 = <strong>6.00</strong></div>
+              <div style="font-size: 12px; line-height: 1.65; color: var(--text-dark);">8–14 days: 2 × 0.75 = <strong>1.50</strong></div>
+              <div style="font-size: 12px; line-height: 1.65; color: var(--text-dark);">15–31 days: 0 reels = <strong>0.00</strong></div>
+              <div style="font-size: 12px; font-weight: 800; color: var(--text-dark); margin-top: 5px;">Total reel points: 7.50</div>
             </div>
 
             <!-- Plain Normal Text Calculation -->
             <div style="margin-top: 14px; font-size: 12.5px; line-height: 1.5; color: var(--text-dark);">
               <div style="font-weight: 700; color: var(--text-muted); font-size: 11px; text-transform: uppercase; letter-spacing: 0.06em;">Score Calculation</div>
               <div>Reel Score Formula =</div>
-              <div style="margin-top: 2px; color: var(--text-secondary);">MIN(Total Reel Points ÷ 2.50 × 2.00, 2.00)</div>
-              <div style="margin-top: 8px; font-weight: 700; color: var(--text-dark);">Reported Contribution:</div>
+              <div style="margin-top: 2px; color: var(--text-secondary);">MIN(7.50 ÷ 2.50 × 2.00, 2.00)</div>
+              <div style="margin-top: 8px; font-weight: 700; color: var(--text-dark);">Capped contribution:</div>
               <div style="font-size: 17px; font-weight: 800; color: #16A34A; margin-top: 2px;">
-                = 2.00 <span style="font-size: 13px; font-weight: 600; color: var(--text-secondary);">/ 2.00 (Reported Contribution)</span>
+                = 2.00 <span style="font-size: 13px; font-weight: 600; color: var(--text-secondary);">/ 2.00</span>
               </div>
             </div>
           </div>
@@ -3192,7 +3193,7 @@
 
 
     <!-- ============ SLIDE 22 · PROFILE CONSISTENCY — 5% ============ -->
-    <section class="slide" id="slide-22" data-notes="Profile Consistency (5%): Evaluates consistency of business Name, Address, Phone, Website, and Hours across Google, Facebook, and Instagram. 0.50 if checks pass, 0.00 if mismatch occurs. Matchbox scored 0.00 / 0.50 due to Instagram profile missing address and having business name/website mismatching the official Google Business Profile.">
+    <section class="slide" id="slide-22" data-notes="Profile Consistency (5%): Each available social platform starts at 0.50. The backend compares applicable profile details with Google Business Profile; a mismatch can reduce the score to 0.00. It checks name and phone when both values exist, requires a matching address or service area when Google has an address, compares available website links, and checks Facebook hours when applicable. Matchbox Instagram scored 0.00; its stored profile has no address and its name and website differ from the Google profile.">
       <!-- Background Continuity Arcs -->
       <div class="decor-top-right-subtle"></div>
       <div class="decor-bottom-left-subtle"></div>
@@ -3217,7 +3218,7 @@
           <div>💡 <strong>Typical checks:</strong></div>
           <div style="color: var(--text-secondary); padding-left: 20px;">
             <strong>Facebook:</strong> Name, Address, Phone, Website, and Hours<br>
-            <strong>Instagram:</strong> Name, Address, and Website
+            <strong>Instagram:</strong> Name, Address, Phone (when present), and Website
           </div>
         </div>
 
@@ -3228,8 +3229,8 @@
             <div style="font-size: 13px; line-height: 1.6; color: var(--text-dark);">
               <div style="font-weight: 800; font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 4px;">SCORING LOGIC</div>
               <div><strong>Profile Score =</strong></div>
-              <div style="color: #16A34A; font-weight: 600; margin-top: 2px;">• 0.50 if applicable checks pass</div>
-              <div style="color: #DC2626; font-weight: 600; margin-top: 2px;">• 0.00 if a checked mismatch or failure occurs</div>
+              <div style="color: #16A34A; font-weight: 600; margin-top: 2px;">• 0.50 when applicable checks pass</div>
+              <div style="color: #DC2626; font-weight: 600; margin-top: 2px;">• 0.00 when a checked value mismatches, or no address/service area matches Google's address</div>
             </div>
 
             <!-- Plain Normal Text Calculation Result (Just like PPT) -->
@@ -3276,7 +3277,7 @@
 
 
     <!-- ============ SLIDE 23 · FACEBOOK-INSTAGRAM CROSS-LINKING — 5% ============ -->
-    <section class="slide" id="slide-23" data-notes="Cross-Linking (5%): 0.50 if Facebook links to Instagram AND Instagram links to Facebook; otherwise 0.00. For Matchbox, Facebook was unavailable, so mutual verification failed, resulting in 0.00 / 0.50.">
+    <section class="slide" id="slide-23" data-notes="Cross-Linking (5%): The backend adds 0.50 once to the overall SOC score only when both scored platforms link to each other. The November 18 Matchbox analysis included Instagram but no Facebook profile data, and the Instagram data contained no Facebook link. The cross-link bonus was 0.00 / 0.50.">
       <!-- Background Continuity Arcs -->
       <div class="decor-top-right-subtle"></div>
       <div class="decor-bottom-left-subtle"></div>
@@ -3311,7 +3312,7 @@
             <!-- Matchbox Evaluation Result -->
             <div style="margin-top: 6px; font-size: 13.5px; line-height: 1.5; color: var(--text-dark);">
               <div style="font-size: 14px; font-weight: 800; color: var(--text-dark); margin-bottom: 2px;">Matchbox</div>
-              <div style="color: var(--text-secondary);">Facebook was not available:</div>
+              <div style="color: var(--text-secondary);">Only Instagram was included in this analysis.</div>
               <div style="margin-top: 6px;">
                 <span>Cross-Link Score = </span>
                 <span style="font-size: 19px; font-weight: 800; color: #16A34A;">0.00 <span style="font-size: 13.5px; font-weight: 600; color: var(--text-secondary);">/ 0.50</span></span>
@@ -3320,7 +3321,7 @@
 
             <!-- Explanatory Note -->
             <div style="margin-top: 8px; font-size: 12px; line-height: 1.55; color: var(--text-dark);">
-              <div>💡 Since Facebook was unavailable, it wasn’t able to check each other, which is why the result is 0.00.</div>
+              <div>💡 No Facebook profile data was scored, and Instagram had no Facebook link. The mutual-link bonus is 0.00.</div>
             </div>
 
           </div>
